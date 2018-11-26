@@ -1,0 +1,7 @@
+# ユーザ情報
+profile:
+  # Google Chromeのパス
+  chrome: "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+
+  # MessageRollが監視するwatchファイル
+  watchfile: "./watch.txt"

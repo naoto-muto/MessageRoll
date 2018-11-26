@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp
+namespace MessageRoll
 {
     public partial class Main : Form
     {
@@ -19,7 +19,7 @@ namespace WindowsFormsApp
         partial void MainMessageRoll_Init()
         {
             logger.Trace("start");
-            brush = new SolidBrush(Color.FromArgb(255, 8, 8, 8));
+            brush = new SolidBrush(Color.FromArgb(255, 0, 255, 0));
             ff = new FontFamily("consolas");
             srcBitmap = new Bitmap(MessagePictureWidth, MessagePictureHeight + bufHeight);
             destImage = new Bitmap(MessagePictureWidth, MessagePictureHeight + bufHeight);
@@ -45,7 +45,8 @@ namespace WindowsFormsApp
                 {
                     GraphicsPath gp = new GraphicsPath();
                     Pen pen = new Pen(Color.Black, 1);
-                    gp.AddString(l.Text, ff, 1, l.FontSize, new Point(l.Left, l.Top), StringFormat.GenericDefault);
+                    FontFamily ff = new FontFamily(l.FontFamilyName);
+                    gp.AddString(l.Text, ff, (int)l.FontStyle, l.FontSize, new Point(l.Left, l.Top), StringFormat.GenericDefault);
                     srcGraphics.FillPath(new SolidBrush(l.ForeColor), gp);
 
                     srcGraphics.DrawPath(Pens.Black, gp);

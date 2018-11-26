@@ -1,12 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApp.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MessageRoll.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="WatchFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">.\watch.txt</Value>
     </Setting>
     <Setting Name="FontSize" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">32</Value>
+      <Value Profile="(Default)">9</Value>
+    </Setting>
+    <Setting Name="MessageSpeed" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

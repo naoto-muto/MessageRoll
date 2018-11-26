@@ -1,16 +1,31 @@
 ﻿using NLog;
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Text;
 
-namespace WindowsFormsApp
+namespace MessageRoll
 {
-    delegate void MessageSendHander(MessageEventArgs e);
+    internal delegate void MessageSendHandler(MessageEventArgs e);
 
     internal class MessageEventArgs : EventArgs
     {
         public string Text;
+        public Color FontColor;
+        public string FontFamilyName;
+        public FontStyle FontStyle;
+        public float FontSize;
+    }
+
+    internal class ConfigEventArgs : EventArgs
+    {
+        public Color ChromakeyColor;
+        public Color FontColor;
+        public string FontFamily;
+        public FontStyle FontStyle;
+        public float FontSize;
+        public bool RandomColor;
     }
 
     class MessageWatcher
@@ -22,7 +37,7 @@ namespace WindowsFormsApp
 
         public ISynchronizeInvoke SynchronizeInvoke { get; set; }
         public string WatchFile { get; set; }
-        public MessageSendHander MessageSend { get; set; }
+        public MessageSendHandler MessageSend { get; set; }
 
         public void Init()
         {
@@ -79,7 +94,7 @@ namespace WindowsFormsApp
                 Buffer.BlockCopy(bytes, 0, byteText, 0, size);
                 string text = Encoding.UTF8.GetString(byteText);
 
-                foreach (var s in text.Split('\n'))
+                foreach (var s in text.Split(new char[] {'\r','\n' } ))
                 {
                     if (s.Length == 0)
                     {

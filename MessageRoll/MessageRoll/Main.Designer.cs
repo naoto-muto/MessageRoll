@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp
+﻿namespace MessageRoll
 {
     partial class Main
     {

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace WindowsFormsApp
+namespace MessageRoll
 {
     class Message
     {
@@ -9,5 +9,7 @@ namespace WindowsFormsApp
         public int Top { get; set; }
         public Color ForeColor { get; set; }
         public float FontSize { get; set; }
+        public string FontFamilyName { get; set; }
+        public FontStyle FontStyle { get; set; }
     }
 }
